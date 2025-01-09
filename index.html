@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Online</title>
+    <style>
+        /* Reset dan dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #ffffff;
+        }
+        
+        /* HERO SECTION */
+        #hero {
+            position: relative;
+            background-image: url('p2.jpg');
+            background-size: cover;
+            background-position: center;
+            color: rgb(255, 111, 0);
+            text-align: center;
+            padding: 150px 20px;
+        }
+        #hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        #hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .shop-now-btn {
+            background-color: #FF6600;
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .shop-now-btn:hover {
+            background-color: #e55a00;
+        }
+        
+        /* Toggle menu */
+        .toggle-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .hamburger-icon {
+            font-size: 30px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* ABOUT SECTION */
+        #about {
+            padding: 60px 10px;
+            background-image: url('tk.jpg');
+            text-align: center;
+            color: #ff7b00;
+        }
+        #about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        #about img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        #about p {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+        
+        /* PRODUCTS SECTION */
+        #products {
+            padding: 60px 20px;
+            background-image: url('promo.jpg');
+            text-align: center;
+            color: #FF6600;
+        }
+        #products h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .product-item {
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+        .product-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .product-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #FF6600;
+        }
+        .product-item p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        .add-to-cart, .message-btn {
+            background-color: #FF6600;
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .add-to-cart:hover, .message-btn:hover {
+            background-color: #e55a00;
+        }
+
+        /* WHY US SECTION */
+        #why-us {
+            padding: 60px 20px;
+            background-image: url('tk.jpg');
+            text-align: center;
+            color: #e55a00;
+        }
+        #why-us h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        .advantages {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+        }
+        .advantage-item {
+            width: 250px;
+            text-align: center;
+        }
+        .advantage-item img {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+        .advantage-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* CONTACT SECTION */
+        #contact {
+            padding: 60px 20px;
+            background-image: url('Hubungi-kami.png');
+            text-align: center;
+            color: #e55a00;
+        }
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ff6200;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ff6200;
+            border-radius: 5px;
+        }
+        form button {
+            background-color: #FF6600;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        form button:hover {
+            background-color: #e55a00;
+        }
+        #whatsapp-link {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+        #whatsapp-link:hover {
+            background-color: #128C7E;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fffcfc;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* MEDIA QUERIES for responsiveness */
+        @media (max-width: 768px) {
+            .product-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .advantages {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 480px) {
+            .product-list {
+                grid-template-columns: 1fr;
+            }
+            #hero h1 {
+                font-size: 2rem;
+            }
+            #hero p {
+                font-size: 1rem;
+            }
+        }
+        /* Gaya untuk toggle menu */
+/* Gaya tombol hamburger */
+.toggle-menu {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.hamburger-icon {
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+
+/* Gaya untuk navigasi saat ditampilkan */
+nav {
+    display: none; /* Disembunyikan secara default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    color: #ff6a00;
+    padding: 20px;
+    z-index: 999;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 20px 0;
+}
+
+nav ul li a {
+    color: #ff7700;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="toggle-menu">
+            <button class="hamburger-icon">&#9776;</button>
+        </div>
+        <h1>Selamat Datang di Toko Kami HMF Cicks !</h1>
+        <p>Makanan bergizi berkualitas tinggi dengan harga termurah.</p>
+        <button onclick="window.location.href='#products'">Shop Now</button>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>Tentang Kami</h2>
+        <img src="7.jpg" alt="Profil" />
+        <p><strong>Nama:</strong> Syahwildan Fatrialis</p>
+        <p><strong>NIM:</strong> 222303020</p>
+        <p><strong>Alamat:</strong> Jl. Rancakasumba, Kec.SolokanJeruk Kab.Bandung</p>
+    </section>
+    <!-- Navigation Menu -->
+<nav id="nav-menu">
+    <ul>
+        <li><a href="#hero">Beranda</a></li>
+        <li><a href="#about">Tentang Kami</a></li>
+        <li><a href="#products">Produk</a></li>
+        <li><a href="#why-us">Kenapa Kami?</a></li>
+        <li><a href="#contact">Hubungi Kami</a></li>
+    </ul>
+</nav>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products">
+        <h2>Katalog Produk</h2>
+        <div class="product-list">
+            <!-- Repeat this block for each product -->
+            <div class="product-item">
+                <img src="p3.jpg" alt="Produk 1" />
+                <h3>Ayam Tiram</h3>
+                <p>Harga:<del> Rp 50.000</del></p>
+                <p>Promo: Rp 40.000</p>
+                <button onclick="window.location.href='#contact'">Pesan Sekarang</button>
+            </div>
+            <div class="product-item">
+                <img src="p4.jpg" alt="Produk 1" />
+                <h3>Ayam Saus Tiram</h3>
+                <p>Harga:<del> Rp 50.000</del></p>
+                <p>Promo: Rp 40.000</p>
+                <button onclick="window.location.href='#contact'">Pesan Sekarang</button>
+            </div>
+            <div class="product-item">
+                <img src="p5.jpg" alt="Produk 1" />
+                <h3>Ayam Balado</h3>
+                <p>Harga:<del> Rp 40.000</del></p>
+                <p>Promo: Rp 30.000</p>
+                <button onclick="window.location.href='#contact'">Pesan Sekarang</button>
+            </div>
+            <div class="product-item">
+                <img src="p6.jpg" alt="Produk 1" />
+                <h3>Ayam Bumbu Jepang</h3>
+                <p>Harga:<del> Rp 35.000</del></p>
+                <p>Promo: Rp 25.000</p>
+                <button onclick="window.location.href='#contact'">Pesan Sekarang</button>
+            </div>
+            <div class="product-item">
+                <img src="p7.jpg" alt="Produk 1" />
+                <h3>Ayam Bumbu Kering</h3>
+                <p>Harga:<del> Rp 30.000</del></p>
+                <p>Promo: Rp 20.000</p>
+                <button onclick="window.location.href='#contact'">Pesan Sekarang</button>
+            </div>
+            <div class="product-item">
+                <img src="p8.jpg" alt="Produk 1" />
+                <h3>BELI 2 GRATIS 1</h3>
+                <p>Harga:<del> Rp 55.000</del></p>
+                <p>Promo: Rp 44.000</p>
+                <button onclick="window.location.href='#contact'">Pesan Sekarang</button>
+            </div>
+            <div class="product-item">
+                <img src="p9.jpg" alt="Produk 1" />
+                <h3>Ayam Santan</h3>
+                <p>Harga:<del> Rp 40.000</del></p>
+                <p>Promo: Rp 30.000</p>
+                <button onclick="window.location.href='#contact'">Pesan Sekarang</button>
+            </div>
+            <div class="product-item">
+                <img src="p11.jpg" alt="Produk 1" />
+                <h3>Ayam Cabe</h3>
+                <p>Harga:<del> Rp 35.000</del></p>
+                <p>Promo: Rp 25.000</p>
+                <button onclick="window.location.href='#contact'">Pesan Sekarang</button>
+            </div>
+            <div class="product-item">
+                <img src="p12.jpg" alt="Produk 1" />
+                <h3>Ayam Suir</h3>
+                <p>Harga:<del> Rp 45.000</del></p>
+                <p>Promo: Rp 35.000</p>
+                <button onclick="window.location.href='#contact'">Pesan Sekarang</button>
+            </div>
+            <div class="product-item">
+                <img src="p13.jpg" alt="Produk 1" />
+                <h3>Ayam Bumbu Sate</h3>
+                <p>Harga:<del> Rp 55.000</del></p>
+                <p>Promo: Rp 40.000</p>
+                <button onclick="window.location.href='#contact'">Pesan Sekarang</button>
+            </div>
+            <div class="product-item">
+                <img src="p14.jpg" alt="Produk 1" />
+                <h3>Ayam Bumbu Spesial</h3>
+                <p>Harga:<del> Rp 40.000</del></p>
+                <p>Promo: Rp 30.000</p>
+                <button onclick="window.location.href='#contact'">Pesan Sekarang</button>
+            </div>
+            <div class="product-item">
+                <img src="p15.jpg" alt="Produk 1" />
+                <h3>Ayam Kering</h3>
+                <p>Harga:<del> Rp 50.000</del></p>
+                <p>Promo: Rp 40.000</p>
+                <button onclick="window.location.href='#contact'">Pesan Sekarang</button>
+            </div>
+            <!-- More product items... -->
+        </div>
+    </section>
+
+    <!-- WHY US SECTION -->
+    <section id="why-us">
+        <h2>Kenapa Memilih Produk Kami?</h2>
+        <div class="advantages">
+            <div class="advantage-item">
+                <h3>Terjamin 100% Halal</h3>
+                <p>Kami telah melewati uji yang ketat.</p>
+            </div>
+            <div class="advantage-item">
+                <h3>Pelayanan Cepat</h3>
+                <p>Pengiriman yang cepat dan aman.</p>
+            </div>
+            <!-- More advantages... -->
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>Hubungi Kami</h2>
+        <p>Jika Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi kami melalui WhatsApp di bawah ini.</p>
+
+        <!-- Contact Form -->
+        <form action="send-message.php" method="POST">
+            <input type="text" name="name" placeholder="Nama Anda" required>
+            <input type="email" name="email" placeholder="Email Anda" required>
+            <textarea name="message" placeholder="Pesan Anda" rows="5" required></textarea>
+        </form>
+
+        <!-- WhatsApp Link -->
+        <p><a href="https://wa.me/083873622470" target="_blank" id="whatsapp-link">WhatsApp</a></p>
+    </section>
+
+    <script>
+        const toggleButton = document.querySelector('.hamburger-icon');
+        const navMenu = document.getElementById('nav-menu');
+    
+        toggleButton.addEventListener('click', () => {
+            navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
+        });
+    </script>
+    
+
+</body>
+</html>
